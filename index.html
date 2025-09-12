@@ -5,70 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>PAK RT BSDK</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-xxxx" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
-    /* Animasi hover halus */
-    .link-animate {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-    .link-animate:hover {
-      transform: translateY(-4px) scale(1.02);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    /* Animasi background gradient */
     body {
-      background: linear-gradient(-45deg, #6b21a8, #4338ca, #9333ea, #2563eb);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(-45deg, #111, #222, #333, #444);
       background-size: 400% 400%;
-      animation: gradientMove 12s ease infinite;
+      animation: gradientMove 15s ease infinite;
     }
     @keyframes gradientMove {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
-  </style>
-</head>
-<body class="min-h-screen flex items-center justify-center p-6">
-  <div class="max-w-sm w-full bg-white rounded-2xl shadow-xl p-6 text-center animate-fade-in">
-    <!-- Profil -->
-      <div class="flex flex-col items-center">
-        <img src="pakrt.png" alt="Profile" class="w-28 h-28 rounded-full mx-auto shadow-md border-4 border-purple-500 transition-transform duration-300 hover:scale-110" />
-          <h1 class="mt-4 text-2xl font-bold text-gray-800">PAK RT BSDK</h1>
-          <p class="text-gray-500 text-sm sm:text-base mb-6 px-4 leading-relaxed">
-          Pemantauan Administrasi dan Kinerja<br/> Rumah Tangga BSDK
-          </p>
-      </div>
 
-    <!-- Link Button dengan ikon -->
-    <div class="space-y-4">
-      <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" class="link-animate flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 font-semibold py-3 rounded-xl shadow-md">
-        <i class="fa-solid fa-globe"></i> Rekapitulasi Kegiatan Pelatihan
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing" class="link-animate flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 font-semibold py-3 rounded-xl shadow-md">
-        <i class="fa-brands fa-instagram"></i> Pemantauan Kinerja Asrama
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing" class="link-animate flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 font-semibold py-3 rounded-xl shadow-md">
-        <i class="fa-brands fa-youtube"></i> Pemantauan Kinerja Gedung
-      </a>
-      <a href="#" class="link-animate flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 font-semibold py-3 rounded-xl shadow-md">
-        <i class="fa-brands fa-whatsapp"></i> Pemantauan Kinerja Auditorium
-      </a>
-      <a href="#" class="link-animate flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 font-semibold py-3 rounded-xl shadow-md">
-        <i class="fa-brands fa-whatsapp"></i> Pemantauan Kinerja Taman
-      </a>
-      <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" class="link-animate flex items-center justify-center gap-2 w-full bg-white border border-gray-200 text-gray-800 font-semibold py-3 rounded-xl shadow-md">
-        <i class="fa-brands fa-whatsapp"></i> Pemantauan Cekin Kamar
-      </a>
-    </div>
+    /* Animasi hover */
+    .link-animate {
+      transition: all 0.25s ease;
+    }
+    .link-animate:hover {
+      background-color: #000;
+      color: #fff;
+      transform: translateY(-2px);
+    }
 
-    <!-- Footer -->
-    <p class="mt-6 text-xs text-gray-400">© 2025 Dibuat dengan ❤️ oleh PAK RT BSDK</p>
-  </div>
-
-  <style>
-    /* Animasi fade in container */
+    /* Animasi fade in */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
@@ -77,13 +43,42 @@
       animation: fadeIn 1s ease-in-out;
     }
   </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-sm w-full bg-white/90 backdrop-blur-md rounded-2xl shadow-xl p-8 text-center animate-fade-in">
+    <!-- Profil -->
+    <div class="flex flex-col items-center">
+      <img src="pakrt.png" alt="Profile" class="w-28 h-28 rounded-full mx-auto shadow-md border border-gray-200" />
+      <h1 class="mt-4 text-2xl font-semibold text-gray-900">PAK RT BSDK</h1>
+      <p class="text-gray-600 text-sm sm:text-base mb-8 leading-relaxed">
+        Pemantauan Administrasi dan Kinerja<br/>Rumah Tangga BSDK
+      </p>
+    </div>
+
+    <!-- Link Buttons -->
+    <div class="space-y-4">
+      <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" class="link-animate flex items-center justify-center gap-3 w-full bg-white border border-gray-300 text-gray-800 font-medium py-3 rounded-xl shadow-sm">
+        <i class="fa-solid fa-globe"></i> Rekapitulasi Kegiatan Pelatihan
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing" class="link-animate flex items-center justify-center gap-3 w-full bg-white border border-gray-300 text-gray-800 font-medium py-3 rounded-xl shadow-sm">
+        <i class="fa-solid fa-building"></i> Pemantauan Kinerja Asrama
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing" class="link-animate flex items-center justify-center gap-3 w-full bg-white border border-gray-300 text-gray-800 font-medium py-3 rounded-xl shadow-sm">
+        <i class="fa-solid fa-city"></i> Pemantauan Kinerja Gedung
+      </a>
+      <a href="#" class="link-animate flex items-center justify-center gap-3 w-full bg-white border border-gray-300 text-gray-800 font-medium py-3 rounded-xl shadow-sm">
+        <i class="fa-solid fa-building-columns"></i> Pemantauan Kinerja Auditorium
+      </a>
+      <a href="#" class="link-animate flex items-center justify-center gap-3 w-full bg-white border border-gray-300 text-gray-800 font-medium py-3 rounded-xl shadow-sm">
+        <i class="fa-solid fa-tree"></i> Pemantauan Kinerja Taman
+      </a>
+      <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" class="link-animate flex items-center justify-center gap-3 w-full bg-white border border-gray-300 text-gray-800 font-medium py-3 rounded-xl shadow-sm">
+        <i class="fa-solid fa-bed"></i> Pemantauan Cekin Kamar
+      </a>
+    </div>
+
+    <!-- Footer -->
+    <p class="mt-8 text-xs text-gray-400">© 2025 Dibuat dengan ❤️ oleh PAK RT BSDK</p>
+  </div>
 </body>
 </html>
-
-
-
-
-
-
-
-
