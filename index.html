@@ -17,15 +17,22 @@
       background: #f9f9f9;
     }
     h1 {
-      font-weight: 400; /* sedikit lebih tebal untuk kontras */
+      font-weight: 400;
     }
     .link-animate {
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      font-weight: 300; /* slim untuk button */
+      transition: all 0.3s ease;
+      font-weight: 300;
+    }
+    .link-animate i {
+      transition: transform 0.3s ease;
     }
     .link-animate:hover {
-      transform: translateY(-3px) scale(1.01);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+      background-color: #f3f3f3;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    }
+    .link-animate:hover i {
+      transform: translateX(4px);
     }
   </style>
 </head>
