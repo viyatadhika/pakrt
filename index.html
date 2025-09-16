@@ -14,102 +14,108 @@
     body {
       font-family: 'Poppins', sans-serif;
       font-weight: 300;
+      background: #f9f9f9;
     }
-    h1 {
-      font-weight: 400;
-    }
+    h1 { font-weight: 400; }
+
+    /* Animasi tombol */
     .link-animate {
       transition: all 0.3s ease;
       font-weight: 300;
-      position: relative;
-      overflow: hidden;
+      background: white;
+      border: 1px solid #e5e7eb;
     }
     .link-animate:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-    }
-    .pulse-icon {
-      display: inline-block;
-      animation: pulseIcon 2s infinite ease-in-out;
-    }
-    @keyframes pulseIcon {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.1);
     }
 
+    /* Animasi ikon */
+    .pulse-icon {
+      display: inline-block;
+      animation: pulseIcon 3s infinite ease-in-out;
+    }
+    @keyframes pulseIcon {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.9; }
+    }
+
+    /* Animasi masuk */
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
       to { opacity: 1; transform: translateY(0); }
     }
-    .animate-fade-in {
-      animation: fadeIn 1s ease-in-out;
-    }
+    .animate-fade-in { animation: fadeIn 1s ease-in-out; }
   </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-6 bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-100">
-  <div class="max-w-sm w-full bg-white dark:bg-gray-800 rounded-2xl shadow-md overflow-hidden animate-fade-in">
+<body class="min-h-screen flex items-center justify-center p-6">
+  <div class="max-w-sm w-full bg-white rounded-2xl shadow-md overflow-hidden animate-fade-in">
     <div class="p-6 text-center">
       <!-- Foto Profil -->
-      <div class="w-28 h-28 rounded-full overflow-hidden mx-auto shadow-md border-2 border-gray-200 dark:border-gray-700 transition-transform duration-300 hover:scale-105">
+      <div class="w-28 h-28 rounded-full overflow-hidden mx-auto shadow-md border-2 border-gray-200 transition-transform duration-300 hover:scale-105">
         <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover" />
       </div>
 
-      <h1 class="mt-4 text-2xl">PAK RT BSDK</h1>
-      <p class="text-gray-500 dark:text-gray-400 text-sm mb-6 px-4 leading-relaxed">
+      <h1 class="mt-4 text-2xl text-gray-800">PAK RT BSDK</h1>
+      <p class="text-gray-500 text-sm mb-6 px-4 leading-relaxed">
         Pemantauan Administrasi dan Kinerja<br/> Rumah Tangga BSDK
       </p>
 
-      <!-- Tombol Putih + Icon Warna -->
+      <!-- Tombol putih + ikon berwarna -->
       <div class="space-y-3">
-        <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-globe text-blue-500 pulse-icon"></i> Rekapitulasi Kegiatan Pelatihan
+        <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-globe pulse-icon text-blue-500"></i>
+          Rekapitulasi Kegiatan Pelatihan
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-bed text-purple-500 pulse-icon"></i> Pemantauan Cekin Kamar
+        <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-bed pulse-icon text-purple-500"></i>
+          Pemantauan Cekin Kamar
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-building text-pink-500 pulse-icon"></i> Pemantauan Asrama
+        <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-building pulse-icon text-pink-500"></i>
+          Pemantauan Asrama
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-city text-emerald-500 pulse-icon"></i> Pemantauan Gedung
+        <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-city pulse-icon text-emerald-500"></i>
+          Pemantauan Gedung
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-landmark text-orange-500 pulse-icon"></i> Pemantauan Auditorium
+        <a href="#"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-landmark pulse-icon text-orange-500"></i>
+          Pemantauan Auditorium
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-house text-rose-500 pulse-icon"></i> Pemantauan Rumpim
+        <a href="#"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-house pulse-icon text-rose-500"></i>
+          Pemantauan Rumpim
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-tree text-green-500 pulse-icon"></i> Pemantauan Taman
+        <a href="#"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-tree pulse-icon text-green-500"></i>
+          Pemantauan Taman
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-elevator text-indigo-500 pulse-icon"></i> Pemantauan Gondola
+        <a href="#"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-elevator pulse-icon text-indigo-500"></i>
+          Pemantauan Gondola
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 text-gray-700 dark:text-gray-100 py-3 rounded-xl"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-road text-yellow-500 pulse-icon"></i> Pemantauan General Cleaning
+        <a href="#"
+           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-road pulse-icon text-yellow-500"></i>
+          Pemantauan General Cleaning
         </a>
       </div>
 
       <!-- Footer -->
-      <p class="mt-6 text-xs text-gray-400 dark:text-gray-500">© 2025 Dibuat dengan ❤️ oleh PAK RT BSDK</p>
+      <p class="mt-6 text-xs text-gray-400">© 2025 Dibuat dengan ❤️ oleh PAK RT BSDK</p>
     </div>
   </div>
 </body>
