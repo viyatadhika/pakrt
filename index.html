@@ -22,8 +22,6 @@
     .link-animate {
       transition: all 0.3s ease;
       font-weight: 400;
-      position: relative;
-      overflow: hidden;
       background: white;
       border: 1px solid #e5e7eb;
     }
@@ -31,12 +29,14 @@
       transform: translateY(-2px);
       box-shadow: 0 6px 16px rgba(0,0,0,0.12);
     }
-    .pulse-icon {
-      animation: pulseIcon 2s infinite ease-in-out;
-    }
-    @keyframes pulseIcon {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.15); }
+    .icon-circle {
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 16px;
     }
   </style>
 </head>
@@ -54,55 +54,55 @@
         Pemantauan Administrasi dan Kinerja<br/> Rumah Tangga BSDK
       </p>
 
-      <!-- Tombol Putih Kecil (ikon + teks sejajar) -->
+      <!-- Tombol dengan ikon bulat pastel -->
       <div class="space-y-3">
-        <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700"
+        <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700"
            target="_blank">
-          <i class="fa-solid fa-globe pulse-icon text-blue-500"></i>
+          <div class="icon-circle bg-blue-100 text-blue-600"><i class="fa-solid fa-globe"></i></div>
           <span>Rekapitulasi Kegiatan Pelatihan</span>
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700"
+        <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700"
            target="_blank">
-          <i class="fa-solid fa-bed pulse-icon text-purple-500"></i>
+          <div class="icon-circle bg-purple-100 text-purple-600"><i class="fa-solid fa-bed"></i></div>
           <span>Pemantauan Cekin Kamar</span>
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700"
+        <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700"
            target="_blank">
-          <i class="fa-solid fa-building pulse-icon text-pink-500"></i>
+          <div class="icon-circle bg-pink-100 text-pink-600"><i class="fa-solid fa-building"></i></div>
           <span>Pemantauan Asrama</span>
         </a>
-        <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700"
+        <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700"
            target="_blank">
-          <i class="fa-solid fa-city pulse-icon text-emerald-500"></i>
+          <div class="icon-circle bg-emerald-100 text-emerald-600"><i class="fa-solid fa-city"></i></div>
           <span>Pemantauan Gedung</span>
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700">
-          <i class="fa-solid fa-landmark pulse-icon text-orange-500"></i>
+        <a href="#"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700">
+          <div class="icon-circle bg-orange-100 text-orange-600"><i class="fa-solid fa-landmark"></i></div>
           <span>Pemantauan Auditorium</span>
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700">
-          <i class="fa-solid fa-house pulse-icon text-rose-500"></i>
+        <a href="#"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700">
+          <div class="icon-circle bg-rose-100 text-rose-600"><i class="fa-solid fa-house"></i></div>
           <span>Pemantauan Rumpim</span>
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700">
-          <i class="fa-solid fa-tree pulse-icon text-green-500"></i>
+        <a href="#"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700">
+          <div class="icon-circle bg-green-100 text-green-600"><i class="fa-solid fa-tree"></i></div>
           <span>Pemantauan Taman</span>
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700">
-          <i class="fa-solid fa-elevator pulse-icon text-indigo-500"></i>
+        <a href="#"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700">
+          <div class="icon-circle bg-indigo-100 text-indigo-600"><i class="fa-solid fa-elevator"></i></div>
           <span>Pemantauan Gondola</span>
         </a>
-        <a href="#" 
-           class="link-animate flex items-center justify-center gap-2 w-full px-4 py-2 rounded-lg text-gray-700">
-          <i class="fa-solid fa-road pulse-icon text-yellow-500"></i>
+        <a href="#"
+           class="link-animate flex items-center gap-3 w-full px-4 py-2 rounded-lg text-gray-700">
+          <div class="icon-circle bg-yellow-100 text-yellow-600"><i class="fa-solid fa-road"></i></div>
           <span>Pemantauan General Cleaning</span>
         </a>
       </div>
