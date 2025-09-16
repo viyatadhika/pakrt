@@ -21,7 +21,7 @@
     }
     .link-animate {
       transition: all 0.3s ease;
-      font-weight: 300;
+      font-weight: 400;
       position: relative;
       overflow: hidden;
       background: white;
@@ -42,63 +42,68 @@
 </head>
 <body class="min-h-screen flex items-center justify-center p-6">
   <div class="max-w-sm w-full bg-white rounded-2xl shadow-md overflow-hidden animate-fade-in">
-    <div class="p-6 text-center">
-      <!-- Foto Profil -->
-      <div class="w-28 h-28 rounded-full overflow-hidden mx-auto shadow-md border-2 border-gray-200 transition-transform duration-300 hover:scale-105">
-        <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover" />
-      </div>
+    
+    <!-- Foto Profil Full Banner -->
+    <div class="w-full h-40 overflow-hidden">
+      <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover" />
+    </div>
 
-      <h1 class="mt-4 text-2xl text-gray-800">PAK RT BSDK</h1>
+    <div class="p-6 text-center">
+      <h1 class="mt-2 text-2xl text-gray-800">PAK RT BSDK</h1>
       <p class="text-gray-500 text-sm mb-6 px-4 leading-relaxed">
         Pemantauan Administrasi dan Kinerja<br/> Rumah Tangga BSDK
       </p>
 
-      <!-- Tombol Putih + Icon Berwarna -->
+      <!-- Tombol Putih dengan Icon Berwarna di Tengah -->
       <div class="space-y-3">
         <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-globe pulse-icon text-blue-500"></i> Rekapitulasi Kegiatan Pelatihan
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-globe pulse-icon text-blue-500 text-xl"></i>
+          <span>Rekapitulasi Kegiatan Pelatihan</span>
         </a>
         <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-bed pulse-icon text-purple-500"></i> Pemantauan Cekin Kamar
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-bed pulse-icon text-purple-500 text-xl"></i>
+          <span>Pemantauan Cekin Kamar</span>
         </a>
         <a href="https://docs.google.com/spreadsheets/d/1JCrNVslLr57aeW1zKB9rrflk56VvqzVIgp-3C8OEOxs/edit?usp=sharing" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-building pulse-icon text-pink-500"></i> Pemantauan Asrama
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-building pulse-icon text-pink-500 text-xl"></i>
+          <span>Pemantauan Asrama</span>
         </a>
         <a href="https://docs.google.com/spreadsheets/d/1ulmh40MF5akT56Ik9GnZGOBzbNbT0OpmnttB5EfnxZI/edit?usp=sharing" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-city pulse-icon text-emerald-500"></i> Pemantauan Gedung
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700"
+           target="_blank">
+          <i class="fa-solid fa-city pulse-icon text-emerald-500 text-xl"></i>
+          <span>Pemantauan Gedung</span>
         </a>
         <a href="#" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-landmark pulse-icon text-orange-500"></i> Pemantauan Auditorium
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-landmark pulse-icon text-orange-500 text-xl"></i>
+          <span>Pemantauan Auditorium</span>
         </a>
         <a href="#" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-house pulse-icon text-rose-500"></i> Pemantauan Rumpim
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-house pulse-icon text-rose-500 text-xl"></i>
+          <span>Pemantauan Rumpim</span>
         </a>
         <a href="#" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-tree pulse-icon text-green-500"></i> Pemantauan Taman
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-tree pulse-icon text-green-500 text-xl"></i>
+          <span>Pemantauan Taman</span>
         </a>
         <a href="#" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-elevator pulse-icon text-indigo-500"></i> Pemantauan Gondola
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-elevator pulse-icon text-indigo-500 text-xl"></i>
+          <span>Pemantauan Gondola</span>
         </a>
         <a href="#" 
-           class="link-animate flex items-center gap-3 w-full px-4 py-3 rounded-xl text-gray-700"
-           target="_blank" rel="noopener noreferrer">
-          <i class="fa-solid fa-road pulse-icon text-yellow-500"></i> Pemantauan General Cleaning
+           class="link-animate flex flex-col items-center justify-center gap-2 w-full px-4 py-3 rounded-xl text-gray-700">
+          <i class="fa-solid fa-road pulse-icon text-yellow-500 text-xl"></i>
+          <span>Pemantauan General Cleaning</span>
         </a>
       </div>
 
