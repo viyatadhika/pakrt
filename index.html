@@ -142,20 +142,35 @@
     <!-- INFO CARD -->
     <h2 class="text-sm font-semibold mt-6 mb-2">Ringkasan Hari Ini</h2>
     <div class="grid grid-cols-2 gap-4">
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up" style="animation-delay:1s">
-        <span class="text-xs text-gray-500">Total Kegiatan</span>
+      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up relative" style="animation-delay:1s">
+        <div class="absolute -top-3 -left-3 bg-blue-100 p-2 rounded-full shadow">
+          <i class="fa-solid fa-calendar-check text-blue-600"></i>
+        </div>
+        <span class="text-xs text-gray-500 mt-3">Total Kegiatan</span>
         <span class="text-lg font-semibold">45</span>
       </div>
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up" style="animation-delay:1.1s">
-        <span class="text-xs text-gray-500">Total Peserta</span>
+
+      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up relative" style="animation-delay:1.1s">
+        <div class="absolute -top-3 -left-3 bg-indigo-100 p-2 rounded-full shadow">
+          <i class="fa-solid fa-users text-indigo-600"></i>
+        </div>
+        <span class="text-xs text-gray-500 mt-3">Total Peserta</span>
         <span class="text-lg font-semibold text-blue-600">2436</span>
       </div>
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up" style="animation-delay:1.2s">
-        <span class="text-xs text-gray-500">Okupansi Kamar</span>
+
+      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up relative" style="animation-delay:1.2s">
+        <div class="absolute -top-3 -left-3 bg-green-100 p-2 rounded-full shadow">
+          <i class="fa-solid fa-bed text-green-600"></i>
+        </div>
+        <span class="text-xs text-gray-500 mt-3">Okupansi Kamar</span>
         <span class="text-lg font-semibold text-green-600">1239</span>
       </div>
-      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up" style="animation-delay:1.3s">
-        <span class="text-xs text-gray-500">Okupansi Kelas</span>
+
+      <div class="bg-white rounded-xl p-4 shadow flex flex-col opacity-0 fade-up relative" style="animation-delay:1.3s">
+        <div class="absolute -top-3 -left-3 bg-purple-100 p-2 rounded-full shadow">
+          <i class="fa-solid fa-chalkboard-user text-purple-600"></i>
+        </div>
+        <span class="text-xs text-gray-500 mt-3">Okupansi Kelas</span>
         <span class="text-lg font-semibold text-purple-600">73</span>
       </div>
     </div>
@@ -202,5 +217,6 @@
   </script>
 </body>
 </html>
+
 
 
