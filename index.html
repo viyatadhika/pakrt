@@ -3,133 +3,145 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PAK RT BSDK</title>
+  <title>PAK RT Super Apps</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body { font-family: 'Poppins', sans-serif; }
-    .pulse-icon { animation: pulseIcon 2s infinite ease-in-out; }
-    @keyframes pulseIcon { 0%,100%{transform:scale(1)}50%{transform:scale(1.15)} }
+    .scrollbar-hide::-webkit-scrollbar { display: none; }
   </style>
 </head>
 <body class="bg-gray-100 min-h-screen flex flex-col">
 
-  <!-- Header -->
-  <header class="bg-gradient-to-r from-blue-600 to-indigo-600 text-white p-5 flex items-center justify-between">
+  <!-- HEADER -->
+  <header class="bg-white p-4 flex items-center justify-between shadow-sm">
     <div>
-      <h1 class="text-lg font-semibold">Halo, PAK RT 👋</h1>
-      <p class="text-sm opacity-80">Pemantauan Administrasi & Kinerja Rumah Tangga BSDK</p>
+      <h1 class="text-base font-semibold">Halo, PAK RT 👋</h1>
+      <p class="text-xs text-gray-500">Semoga harimu menyenangkan</p>
     </div>
-    <div class="w-10 h-10 rounded-full overflow-hidden border-2 border-white shadow">
-      <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover">
+    <div class="flex items-center gap-3">
+      <button class="relative">
+        <i class="fa-regular fa-bell text-lg text-gray-700"></i>
+        <span class="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] px-1 rounded-full">3</span>
+      </button>
+      <div class="w-9 h-9 rounded-full overflow-hidden border border-gray-300">
+        <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover">
+      </div>
     </div>
   </header>
 
-  <!-- Quick Actions -->
-  <section class="bg-white px-5 py-4 shadow-md flex justify-between rounded-b-3xl -mt-2">
-    <button class="flex flex-col items-center text-blue-600">
-      <div class="bg-blue-100 p-3 rounded-xl mb-1"><i class="fa-solid fa-clipboard-check"></i></div>
-      <span class="text-xs font-medium">Laporan</span>
-    </button>
-    <button class="flex flex-col items-center text-green-600">
-      <div class="bg-green-100 p-3 rounded-xl mb-1"><i class="fa-solid fa-list-check"></i></div>
-      <span class="text-xs font-medium">Ceklist</span>
-    </button>
-    <button class="flex flex-col items-center text-purple-600">
-      <div class="bg-purple-100 p-3 rounded-xl mb-1"><i class="fa-solid fa-chart-line"></i></div>
-      <span class="text-xs font-medium">Kinerja</span>
-    </button>
-  </section>
+  <!-- SEARCH + ACTION -->
+  <div class="px-4 mt-2">
+    <div class="flex items-center bg-gray-200 rounded-full px-3 py-2">
+      <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm mr-2"></i>
+      <input type="text" placeholder="Cari menu atau laporan..." class="bg-transparent w-full text-sm focus:outline-none">
+    </div>
+    <div class="flex gap-3 mt-3">
+      <button class="flex-1 flex items-center justify-center bg-blue-100 text-blue-600 rounded-xl py-2 text-sm font-medium">
+        <i class="fa-solid fa-qrcode mr-2"></i> Scan
+      </button>
+      <button class="flex-1 flex items-center justify-center bg-green-100 text-green-600 rounded-xl py-2 text-sm font-medium">
+        <i class="fa-solid fa-plus mr-2"></i> Tambah
+      </button>
+    </div>
+  </div>
 
-  <!-- Statistik Singkat -->
-  <section class="px-5 mt-5">
-    <h2 class="text-gray-700 font-semibold mb-3">Statistik Hari Ini</h2>
-    <div class="grid grid-cols-3 gap-4">
-      <div class="bg-white rounded-xl shadow p-4 text-center">
-        <i class="fa-solid fa-file-lines text-blue-500 text-xl mb-2"></i>
-        <p class="text-lg font-bold text-gray-800">12</p>
-        <p class="text-xs text-gray-500">Laporan</p>
+  <!-- BANNER PROMO / INFO -->
+  <div class="mt-4 px-4">
+    <div class="overflow-x-auto flex gap-4 scrollbar-hide">
+      <div class="min-w-[80%] bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-2xl shadow">
+        <h2 class="text-sm font-semibold">Cek Administrasi</h2>
+        <p class="text-xs opacity-80">Pantau laporan harian dan kegiatan terbaru</p>
       </div>
-      <div class="bg-white rounded-xl shadow p-4 text-center">
-        <i class="fa-solid fa-check-circle text-green-500 text-xl mb-2"></i>
-        <p class="text-lg font-bold text-gray-800">8</p>
-        <p class="text-xs text-gray-500">Ceklist</p>
-      </div>
-      <div class="bg-white rounded-xl shadow p-4 text-center">
-        <i class="fa-solid fa-bolt text-yellow-500 text-xl mb-2"></i>
-        <p class="text-lg font-bold text-gray-800">75%</p>
-        <p class="text-xs text-gray-500">Kinerja</p>
+      <div class="min-w-[80%] bg-gradient-to-r from-green-400 to-emerald-600 text-white p-4 rounded-2xl shadow">
+        <h2 class="text-sm font-semibold">Update Kebersihan</h2>
+        <p class="text-xs opacity-80">Laporan general cleaning tersedia</p>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Konten Utama -->
-  <main class="flex-1 px-5 py-6">
-    <h2 class="text-gray-700 font-semibold mb-4">Menu Pemantauan</h2>
-    <div class="grid grid-cols-3 gap-4">
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-globe text-xl text-blue-500 mb-1"></i>
-        <span class="text-xs text-center">Pelatihan</span>
+  <!-- MENU GRID -->
+  <main class="flex-1 p-4">
+    <h2 class="text-sm font-semibold mb-2">Menu Utama</h2>
+    <div class="grid grid-cols-4 gap-4">
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-blue-100 rounded-full">
+          <i class="fa-solid fa-globe text-blue-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Pelatihan</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-bed text-xl text-purple-500 mb-1"></i>
-        <span class="text-xs text-center">Cekin Kamar</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-purple-100 rounded-full">
+          <i class="fa-solid fa-bed text-purple-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Cekin</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-building text-xl text-pink-500 mb-1"></i>
-        <span class="text-xs text-center">Asrama</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-pink-100 rounded-full">
+          <i class="fa-solid fa-building text-pink-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Asrama</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-city text-xl text-emerald-500 mb-1"></i>
-        <span class="text-xs text-center">Gedung</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-emerald-100 rounded-full">
+          <i class="fa-solid fa-city text-emerald-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Gedung</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-landmark text-xl text-orange-500 mb-1"></i>
-        <span class="text-xs text-center">Auditorium</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-orange-100 rounded-full">
+          <i class="fa-solid fa-landmark text-orange-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Auditorium</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-house text-xl text-rose-500 mb-1"></i>
-        <span class="text-xs text-center">Rumah Pimpinan</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-rose-100 rounded-full">
+          <i class="fa-solid fa-house text-rose-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Rumah</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-tree text-xl text-green-500 mb-1"></i>
-        <span class="text-xs text-center">Taman</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-green-100 rounded-full">
+          <i class="fa-solid fa-tree text-green-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Taman</span>
       </a>
-
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-elevator text-xl text-indigo-500 mb-1"></i>
-        <span class="text-xs text-center">Gondola</span>
+      <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
+        <div class="w-12 h-12 flex items-center justify-center bg-indigo-100 rounded-full">
+          <i class="fa-solid fa-elevator text-indigo-600 text-lg"></i>
+        </div>
+        <span class="mt-1">Gondola</span>
       </a>
+    </div>
 
-      <a href="#" class="flex flex-col items-center bg-white rounded-xl shadow p-3 hover:shadow-md transition">
-        <i class="fa-solid fa-road text-xl text-yellow-500 mb-1"></i>
-        <span class="text-xs text-center">Cleaning</span>
-      </a>
-
+    <!-- INFO CARD -->
+    <h2 class="text-sm font-semibold mt-6 mb-2">Ringkasan Hari Ini</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+        <span class="text-xs text-gray-500">Total Kegiatan</span>
+        <span class="text-lg font-semibold">12</span>
+      </div>
+      <div class="bg-white rounded-xl p-4 shadow flex flex-col">
+        <span class="text-xs text-gray-500">Cekin Kamar</span>
+        <span class="text-lg font-semibold text-green-600">98%</span>
+      </div>
     </div>
   </main>
 
-  <!-- Bottom Navigation -->
-  <nav class="bg-white border-t shadow-lg flex justify-around items-center py-3">
+  <!-- BOTTOM NAV -->
+  <nav class="bg-white border-t flex justify-around py-2 text-xs text-gray-600">
     <a href="#" class="flex flex-col items-center text-blue-600">
-      <i class="fa-solid fa-home text-lg"></i>
-      <span class="text-xs">Beranda</span>
+      <i class="fa-solid fa-home text-lg mb-0.5"></i>
+      <span>Beranda</span>
     </a>
-    <a href="#" class="flex flex-col items-center text-gray-500 hover:text-blue-600">
-      <i class="fa-solid fa-file-lines text-lg"></i>
-      <span class="text-xs">Laporan</span>
+    <a href="#" class="flex flex-col items-center hover:text-blue-600">
+      <i class="fa-solid fa-chart-line text-lg mb-0.5"></i>
+      <span>Laporan</span>
     </a>
-    <a href="#" class="flex flex-col items-center text-gray-500 hover:text-blue-600">
-      <i class="fa-solid fa-user text-lg"></i>
-      <span class="text-xs">Profil</span>
+    <a href="#" class="flex flex-col items-center hover:text-blue-600">
+      <i class="fa-solid fa-user text-lg mb-0.5"></i>
+      <span>Profil</span>
     </a>
   </nav>
 
