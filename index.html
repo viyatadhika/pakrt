@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PAK RT Super Apps</title>
+  <title>BSDK Super Apps</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -32,28 +32,12 @@
   </header>
 
   <!-- SEARCH + ACTION -->
-<div class="px-4 mt-2">
-  <div class="flex items-center bg-gray-200 rounded-full px-3 py-2">
-    <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm mr-2"></i>
-    <input type="text" placeholder="Cari menu atau laporan..." class="bg-transparent w-full text-sm focus:outline-none">
+  <div class="px-4 mt-2">
+    <div class="flex items-center bg-gray-200 rounded-full px-3 py-2">
+      <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm mr-2"></i>
+      <input type="text" placeholder="Cari menu atau laporan..." class="bg-transparent w-full text-sm focus:outline-none">
+    </div>
   </div>
-  <!-- Quick Action Buttons -->
-  <div class="grid grid-cols-3 gap-3 mt-3">
-    <button class="flex flex-col items-center justify-center bg-blue-100 text-blue-600 rounded-xl py-3 text-xs font-medium">
-      <i class="fa-solid fa-clipboard-check mb-1"></i>
-      Laporan
-    </button>
-    <button class="flex flex-col items-center justify-center bg-green-100 text-green-600 rounded-xl py-3 text-xs font-medium">
-      <i class="fa-solid fa-list-check mb-1"></i>
-      Ceklist
-    </button>
-    <button class="flex flex-col items-center justify-center bg-orange-100 text-orange-600 rounded-xl py-3 text-xs font-medium">
-      <i class="fa-solid fa-plus mb-1"></i>
-      Tambah
-    </button>
-  </div>
-</div>
-
 
   <!-- BANNER PROMO / INFO -->
   <div class="mt-4 px-4">
@@ -70,7 +54,7 @@
   </div>
 
   <!-- MENU GRID -->
-  <main class="flex-1 p-4">
+  <main class="flex-1 p-4 pb-24">
     <h2 class="text-sm font-semibold mb-2">Menu Utama</h2>
     <div class="grid grid-cols-4 gap-4">
       <a href="#" class="flex flex-col items-center text-gray-700 text-xs">
@@ -138,21 +122,32 @@
   </main>
 
   <!-- BOTTOM NAV -->
-  <nav class="bg-white border-t flex justify-around py-2 text-xs text-gray-600">
+  <nav class="fixed bottom-0 left-0 right-0 bg-white border-t flex justify-around items-center h-16 shadow-lg">
     <a href="#" class="flex flex-col items-center text-blue-600">
       <i class="fa-solid fa-home text-lg mb-0.5"></i>
-      <span>Beranda</span>
+      <span class="text-xs">Beranda</span>
     </a>
     <a href="#" class="flex flex-col items-center hover:text-blue-600">
       <i class="fa-solid fa-chart-line text-lg mb-0.5"></i>
-      <span>Laporan</span>
+      <span class="text-xs">Laporan</span>
+    </a>
+
+    <!-- FAB Tengah -->
+    <div class="relative -mt-10">
+      <button class="w-14 h-14 bg-blue-600 text-white rounded-full flex items-center justify-center shadow-lg">
+        <i class="fa-solid fa-plus text-xl"></i>
+      </button>
+    </div>
+
+    <a href="#" class="flex flex-col items-center hover:text-blue-600">
+      <i class="fa-solid fa-list-check text-lg mb-0.5"></i>
+      <span class="text-xs">Ceklist</span>
     </a>
     <a href="#" class="flex flex-col items-center hover:text-blue-600">
       <i class="fa-solid fa-user text-lg mb-0.5"></i>
-      <span>Profil</span>
+      <span class="text-xs">Profil</span>
     </a>
   </nav>
 
 </body>
 </html>
-
