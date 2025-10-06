@@ -81,7 +81,7 @@
   </div>
   <div>
     <h2 class="text-sm font-semibold">Update Kebersihan</h2>
-    <p class="text-xs opacity-80">Laporan checklist kebersihan tersedia</p>
+    <p class="text-xs opacity-80">Laporan general cleaning tersedia</p>
   </div>
 </div>
 
@@ -224,21 +224,34 @@
     </div>
   </main>
 
-  <!-- BOTTOM NAV -->
-  <nav class="bg-white border-t flex justify-around py-2 text-xs text-gray-600 fixed bottom-0 left-0 right-0">
-    <a href="#" class="flex flex-col items-center text-blue-600">
-      <i class="fa-solid fa-home text-lg mb-0.5"></i>
-      <span>Beranda</span>
-    </a>
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-chart-line text-lg mb-0.5"></i>
-      <span>Laporan</span>
-    </a>
-    <a href="#" class="flex flex-col items-center hover:text-blue-600">
-      <i class="fa-solid fa-user text-lg mb-0.5"></i>
-      <span>Profil</span>
-    </a>
-  </nav>
+ <!-- BOTTOM NAV -->
+<nav class="bg-white border-t shadow-md flex justify-around py-2 text-xs text-gray-600 fixed bottom-0 left-0 right-0 z-50">
+  <!-- Beranda -->
+  <a href="#" class="group flex flex-col items-center text-blue-600 transition-all duration-300">
+    <i class="fa-solid fa-home text-lg mb-0.5 group-hover:scale-110"></i>
+    <span class="group-hover:text-blue-600">Beranda</span>
+  </a>
+
+  <!-- SIKEP -->
+  <a href="https://sikep.mahkamahagung.go.id/" target="_blank" class="group flex flex-col items-center hover:text-blue-600 transition-all duration-300">
+    <i class="fa-solid fa-building-columns text-lg mb-0.5 group-hover:scale-110"></i>
+    <span class="group-hover:text-blue-600">SIKEP</span>
+  </a>
+
+  <!-- e-Kinerja -->
+  <a href="https://asndigital.bkn.go.id/" target="_blank" class="group flex flex-col items-center hover:text-blue-600 transition-all duration-300">
+    <i class="fa-solid fa-briefcase text-lg mb-0.5 group-hover:scale-110"></i>
+    <span class="group-hover:text-blue-600">e-Kinerja</span>
+  </a>
+
+  <!-- Upload PKP -->
+  <a href="https://forms.gle/T8RfTL22i8HDSeuZ6" target="_blank" class="group flex flex-col items-center hover:text-blue-600 transition-all duration-300">
+    <i class="fa-solid fa-upload text-lg mb-0.5 group-hover:scale-110"></i>
+    <span class="group-hover:text-blue-600">Upload PKP</span>
+  </a>
+</nav>
+
+
 
   <script>
     // Auto slide carousel
