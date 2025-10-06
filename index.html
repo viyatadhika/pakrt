@@ -109,72 +109,82 @@
   <main class="flex-1 p-4 pb-24">
     <h2 class="text-sm font-semibold mb-2">Menu Utama</h2>
     <!-- MENU GRID -->
-<div class="grid grid-cols-4 gap-4 mt-4">
-  <!-- Item -->
-  <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-blue-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-globe text-blue-600 text-xl"></i>
+<div class="grid grid-cols-4 gap-4 px-4 mt-4">
+
+  <!-- Timetable -->
+  <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-100">
+    <div class="w-14 h-14 flex items-center justify-center bg-blue-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-calendar-days text-blue-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Timetable<br>Kegiatan</span>
+    <span class="mt-2 text-center font-medium group-hover:text-blue-600">Timetable<br>Kegiatan</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-purple-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-bed text-purple-600 text-xl"></i>
+  <!-- Cekin Peserta -->
+  <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-200">
+    <div class="w-14 h-14 flex items-center justify-center bg-purple-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-bed text-purple-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Cekin<br>Peserta</span>
+    <span class="mt-2 text-center font-medium group-hover:text-purple-600">Cekin<br>Peserta</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/1zrkMCQx3pgBUcMEKuk-5LB6Ajgsy5P3NDzErN-aDPZU/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-pink-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-building text-pink-600 text-xl"></i>
+  <!-- Asrama -->
+  <a href="https://docs.google.com/spreadsheets/d/1zrkMCQx3pgBUcMEKuk-5LB6Ajgsy5P3NDzErN-aDPZU/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-300">
+    <div class="w-14 h-14 flex items-center justify-center bg-pink-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-house-chimney-user text-pink-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Asrama</span>
+    <span class="mt-2 text-center font-medium group-hover:text-pink-600">Asrama</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/1MmR6iL6P2fWF4QyUcb02Gey7wo7HciipFHrVeJLxQAk/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-emerald-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-city text-emerald-600 text-xl"></i>
+  <!-- Gedung -->
+  <a href="https://docs.google.com/spreadsheets/d/1MmR6iL6P2fWF4QyUcb02Gey7wo7HciipFHrVeJLxQAk/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-400">
+    <div class="w-14 h-14 flex items-center justify-center bg-emerald-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-building text-emerald-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Gedung</span>
+    <span class="mt-2 text-center font-medium group-hover:text-emerald-600">Gedung</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/1FvszZa7URQugkV5kRlbslS3kEyvtk_I1lO-EeQ91Zik/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-orange-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-landmark text-orange-600 text-xl"></i>
+  <!-- Auditorium -->
+  <a href="https://docs.google.com/spreadsheets/d/1FvszZa7URQugkV5kRlbslS3kEyvtk_I1lO-EeQ91Zik/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-500">
+    <div class="w-14 h-14 flex items-center justify-center bg-orange-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-microphone-lines text-orange-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Auditorium</span>
+    <span class="mt-2 text-center font-medium group-hover:text-orange-600">Auditorium</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/13G4zior1MCrdrPwHyH6O0b8Zo3DH5Oezknj0WCpulII/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-rose-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-house text-rose-600 text-xl"></i>
+  <!-- Rumpim -->
+  <a href="https://docs.google.com/spreadsheets/d/13G4zior1MCrdrPwHyH6O0b8Zo3DH5Oezknj0WCpulII/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-600">
+    <div class="w-14 h-14 flex items-center justify-center bg-rose-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-house text-rose-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Rumpim</span>
+    <span class="mt-2 text-center font-medium group-hover:text-rose-600">Rumpim</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/1PjQdqNzuzGT0zqMFihZ9HmvH2P3LYlHYzgeaD2jaYtk/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-green-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-tree text-green-600 text-xl"></i>
+  <!-- Taman -->
+  <a href="https://docs.google.com/spreadsheets/d/1PjQdqNzuzGT0zqMFihZ9HmvH2P3LYlHYzgeaD2jaYtk/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-700">
+    <div class="w-14 h-14 flex items-center justify-center bg-green-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-tree text-green-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Taman</span>
+    <span class="mt-2 text-center font-medium group-hover:text-green-600">Taman</span>
   </a>
 
-  <a href="https://docs.google.com/spreadsheets/d/1y1iqnIlJ0Fv3t9ZLGFkYG-0_L_6hTlZyD49Hm-9Rz-4/edit?usp=sharing" 
-     class="flex flex-col items-center text-gray-700 text-xs hover:scale-105 transition-transform duration-300">
-    <div class="w-14 h-14 flex items-center justify-center bg-indigo-50 rounded-2xl shadow-sm">
-      <i class="fa-solid fa-elevator text-indigo-600 text-xl"></i>
+  <!-- Gondola -->
+  <a href="https://docs.google.com/spreadsheets/d/1y1iqnIlJ0Fv3t9ZLGFkYG-0_L_6hTlZyD49Hm-9Rz-4/edit?usp=sharing" target="_blank"
+     class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-800">
+    <div class="w-14 h-14 flex items-center justify-center bg-indigo-50 rounded-2xl shadow-md group-hover:scale-110 transition-all">
+      <i class="fa-solid fa-train-tram text-indigo-600 text-2xl"></i>
     </div>
-    <span class="mt-2 text-center font-medium leading-tight">Gondola</span>
+    <span class="mt-2 text-center font-medium group-hover:text-indigo-600">Gondola</span>
   </a>
+
 </div>
+
 
 
     <!-- INFO CARD -->
@@ -255,6 +265,7 @@
   </script>
 </body>
 </html>
+
 
 
 
