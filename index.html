@@ -13,96 +13,110 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
   <style>
-    body { font-family: 'Poppins', sans-serif; }
+    body { font-family: 'Poppins', sans-serif; overflow-x: hidden; }
     .scrollbar-hide::-webkit-scrollbar { display: none; }
 
-    /* Animasi */
     @keyframes fadeUp {
       0% { opacity: 0; transform: translateY(20px) scale(0.95); }
       100% { opacity: 1; transform: translateY(0) scale(1); }
     }
-    .fade-up { animation: fadeUp 0.6s ease forwards; }
+    .fade-up { opacity: 0; animation: fadeUp 0.6s ease forwards; }
 
-    @keyframes slideLeft {
-      0% { opacity: 0; transform: translateX(-50px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes slideRight {
-      0% { opacity: 0; transform: translateX(50px); }
-      100% { opacity: 1; transform: translateX(0); }
-    }
-    .slide-left { animation: slideLeft 0.7s ease forwards; }
-    .slide-right { animation: slideRight 0.7s ease forwards; }
-
-    /* Carousel style */
     .carousel { scroll-snap-type: x mandatory; }
     .carousel-item { scroll-snap-align: start; flex: 0 0 100%; }
+
+    /* ---------- SHEET MENU LAINNYA ---------- */
+    .sheet {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #fff;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+      transform: translateY(100%);
+      transition: transform 0.35s ease;
+      will-change: transform;
+      box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+      max-height: 85vh;
+      overflow-y: auto;
+      z-index: 50;
+    }
+    .sheet.show {
+      transform: translateY(0);
+    }
+
+    .fade-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.3);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+      z-index: 40;
+    }
+    .fade-bg.show {
+      opacity: 1;
+      pointer-events: all;
+      backdrop-filter: blur(4px);
+    }
+
+    .sheet-handle {
+      width: 40px;
+      height: 4px;
+      background: #ccc;
+      border-radius: 9999px;
+      margin: 10px auto;
+    }
   </style>
 </head>
-<body class="bg-gray-100 min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col bg-gradient-to-b from-sky-100 via-white to-gray-100">
 
-  <!-- HEADER -->
-  <header class="bg-white p-4 flex items-center justify-between shadow-sm">
+  <!-- 🌟 HEADER - FIXED & RESPONSIVE -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md shadow-sm border-b border-gray-200">
+  <div class="flex items-center justify-between px-4 py-3">
     <div>
-      <h1 class="text-base font-semibold">Halo, PAK RT 👋</h1>
+      <h1 class="text-base font-semibold text-gray-800">Halo, PAK RT 👋</h1>
       <p class="text-xs text-gray-500">Semoga harimu menyenangkan</p>
     </div>
-    <div class="flex items-center gap-3">
-      
-      <div class="w-9 h-9 rounded-full overflow-hidden border border-gray-300">
-        <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover">
-      </div>
+    <div class="w-9 h-9 rounded-full overflow-hidden border border-gray-300 shadow-sm">
+      <img src="pakrt_ico.png" alt="Profile" class="w-full h-full object-cover">
     </div>
-  </header>
-
-  <!-- SEARCH + ACTION 
-  <div class="px-4 mt-2">
-    <div class="flex items-center bg-gray-200 rounded-full px-3 py-2">
-      <i class="fa-solid fa-magnifying-glass text-gray-500 text-sm mr-2"></i>
-      <input type="text" placeholder="Cari menu atau laporan..." class="bg-transparent w-full text-sm focus:outline-none">
-    </div>
-  </div> -->
+  </div>
+</header>
 
   <!-- BANNER / CAROUSEL -->
-  <div class="mt-4 px-4 relative">
+
+<div class="mt-[88px] px-4 relative"> <!-- Tambahkan jarak top sesuai tinggi header -->
     <div id="carousel" class="flex overflow-x-auto carousel scrollbar-hide rounded-2xl">
       <!-- SLIDE 1 -->
-<div class="carousel-item bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-2xl shadow flex items-center gap-3 slide-left">
-  <div class="w-16 h-16 flex items-center justify-center">
-    <!-- Ilustrasi Dokumen Kartun -->
-    <img src="dokumen.png" alt="Dokumen" class="w-14 h-14">
-  </div>
-  <div>
-    <h2 class="text-sm font-semibold">Cek Administrasi</h2>
-    <p class="text-xs opacity-80">Pantau laporan harian dan kegiatan terbaru</p>
-  </div>
-</div>
-
-<!-- SLIDE 2 -->
-<div class="carousel-item bg-gradient-to-r from-green-400 to-emerald-600 text-white p-4 rounded-2xl shadow flex items-center gap-3 slide-right">
-  <div class="w-16 h-16 flex items-center justify-center">
-    <!-- Ilustrasi Cleaning Kartun -->
-    <img src="cleaning.png" alt="Cleaning" class="w-14 h-14">
-  </div>
-  <div>
-    <h2 class="text-sm font-semibold">Update Kebersihan</h2>
-    <p class="text-xs opacity-80">Laporan general cleaning tersedia</p>
-  </div>
-</div>
-
-<!-- SLIDE 3 -->
-<div class="carousel-item bg-gradient-to-r from-orange-400 to-red-500 text-white p-4 rounded-2xl shadow flex items-center gap-3">
-  <div class="w-16 h-16 flex items-center justify-center">
-    <!-- Ilustrasi Grafik Kartun -->
-    <img src="kinerja.png" alt="Kinerja" class="w-14 h-14">
-  </div>
-  <div>
-    <h2 class="text-sm font-semibold">Pemantauan Kinerja</h2>
-    <p class="text-xs opacity-80">Data progres pekerjaan tersedia</p>
-  </div>
-</div>
+      <div class="carousel-item bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-4 rounded-2xl shadow flex items-center gap-3 fade-up" style="animation-delay:0.2s">
+        <img src="dokumen.png" alt="Dokumen" class="w-14 h-14">
+        <div>
+          <h2 class="text-sm font-semibold">Cek Administrasi</h2>
+          <p class="text-xs opacity-80">Pantau laporan harian dan kegiatan terbaru</p>
+        </div>
+      </div>
+      <!-- SLIDE 2 -->
+      <div class="carousel-item bg-gradient-to-r from-green-400 to-emerald-600 text-white p-4 rounded-2xl shadow flex items-center gap-3 fade-up" style="animation-delay:0.3s">
+        <img src="cleaning.png" alt="Cleaning" class="w-14 h-14">
+        <div>
+          <h2 class="text-sm font-semibold">Update Kebersihan</h2>
+          <p class="text-xs opacity-80">Laporan checklist kebersihan tersedia</p>
+        </div>
+      </div>
+      <!-- SLIDE 3 -->
+      <div class="carousel-item bg-gradient-to-r from-orange-400 to-red-500 text-white p-4 rounded-2xl shadow flex items-center gap-3 fade-up" style="animation-delay:0.4s">
+        <img src="kinerja.png" alt="Kinerja" class="w-14 h-14">
+        <div>
+          <h2 class="text-sm font-semibold">Pemantauan Kinerja</h2>
+          <p class="text-xs opacity-80">Data progres pekerjaan tersedia</p>
+        </div>
+      </div>
     </div>
+
     <!-- Indicator -->
     <div class="flex justify-center mt-2 gap-2">
       <span class="w-2 h-2 bg-blue-600 rounded-full" id="dot0"></span>
@@ -110,114 +124,155 @@
       <span class="w-2 h-2 bg-gray-400 rounded-full" id="dot2"></span>
     </div>
   </div>
-<!-- MENU GRID -->
-<main class="flex-1 p-4 pb-24">
-  <h2 class="text-sm font-semibold mb-2">Menu Utama</h2>
 
-  <div class="grid grid-cols-4 gap-4 px-4 mt-4">
+  <!-- MENU GRID -->
+  <main class="flex-1 p-4 pb-32">
+   <!-- 🌿 Bagian Menu Cleaning Service -->
+<h2 class="text-sm font-semibold mb-2 fade-up" style="animation-delay:0.3s">
+  Cleaning Service
+</h2>
 
-    <!-- Timetable -->
-    <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-100">
-      <div class="w-14 h-14 flex items-center justify-center bg-blue-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-blue-200 transition-all duration-300">
-        <i class="fa-solid fa-calendar-days text-blue-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-blue-600">Timetable<br>Kegiatan</span>
-    </a>
+<div class="grid grid-cols-4 gap-4 px-4 mt-4">
 
-    <!-- Cekin Peserta -->
-    <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-200">
-      <div class="w-14 h-14 flex items-center justify-center bg-purple-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-purple-200 transition-all duration-300">
-        <i class="fa-solid fa-bed text-purple-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-purple-600">Cekin<br>Peserta</span>
-    </a>
+  <!-- Supervisor -->
+  <a href="https://docs.google.com/spreadsheets/d/1yx85GsiK1FllpONHp4UMd4-8zCxtH_WbW5EAx2YEOE0/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:0.4s">
+    <div class="w-14 h-14 flex items-center justify-center bg-blue-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-user-tie text-blue-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Supervisor</span>
+  </a>
 
-    <!-- Asrama -->
-    <a href="https://docs.google.com/spreadsheets/d/1zrkMCQx3pgBUcMEKuk-5LB6Ajgsy5P3NDzErN-aDPZU/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-300">
-      <div class="w-14 h-14 flex items-center justify-center bg-pink-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-pink-200 transition-all duration-300">
-        <i class="fa-solid fa-house-chimney-user text-pink-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-pink-600">Asrama</span>
-    </a>
+  <!-- Asrama -->
+  <a href="https://docs.google.com/spreadsheets/d/1zrkMCQx3pgBUcMEKuk-5LB6Ajgsy5P3NDzErN-aDPZU/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:0.5s">
+    <div class="w-14 h-14 flex items-center justify-center bg-pink-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-house-chimney-user text-pink-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Asrama</span>
+  </a>
 
-    <!-- Gedung -->
-    <a href="https://docs.google.com/spreadsheets/d/1MmR6iL6P2fWF4QyUcb02Gey7wo7HciipFHrVeJLxQAk/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-400">
-      <div class="w-14 h-14 flex items-center justify-center bg-emerald-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-emerald-200 transition-all duration-300">
-        <i class="fa-solid fa-building text-emerald-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-emerald-600">Gedung</span>
-    </a>
+  <!-- Gedung -->
+  <a href="https://docs.google.com/spreadsheets/d/1MmR6iL6P2fWF4QyUcb02Gey7wo7HciipFHrVeJLxQAk/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:0.6s">
+    <div class="w-14 h-14 flex items-center justify-center bg-emerald-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-building text-emerald-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Gedung</span>
+  </a>
 
-    <!-- Auditorium -->
-    <a href="https://docs.google.com/spreadsheets/d/1FvszZa7URQugkV5kRlbslS3kEyvtk_I1lO-EeQ91Zik/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-500">
-      <div class="w-14 h-14 flex items-center justify-center bg-orange-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-orange-200 transition-all duration-300">
-        <i class="fa-solid fa-school text-orange-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-orange-600">Auditorium</span>
-    </a>
+  <!-- Auditorium -->
+  <a href="https://docs.google.com/spreadsheets/d/1FvszZa7URQugkV5kRlbslS3kEyvtk_I1lO-EeQ91Zik/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:0.7s">
+    <div class="w-14 h-14 flex items-center justify-center bg-orange-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-school text-orange-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Auditorium</span>
+  </a>
 
-    <!-- Rumpim -->
-    <a href="https://docs.google.com/spreadsheets/d/13G4zior1MCrdrPwHyH6O0b8Zo3DH5Oezknj0WCpulII/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-600">
-      <div class="w-14 h-14 flex items-center justify-center bg-rose-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-rose-200 transition-all duration-300">
-        <i class="fa-solid fa-house text-rose-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-rose-600">Rumpim</span>
-    </a>
+  <!-- Rumpim -->
+  <a href="https://docs.google.com/spreadsheets/d/13G4zior1MCrdrPwHyH6O0b8Zo3DH5Oezknj0WCpulII/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:0.8s">
+    <div class="w-14 h-14 flex items-center justify-center bg-rose-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-house text-rose-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Rumpim</span>
+  </a>
 
-    <!-- Taman -->
-    <a href="https://docs.google.com/spreadsheets/d/1PjQdqNzuzGT0zqMFihZ9HmvH2P3LYlHYzgeaD2jaYtk/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-700">
-      <div class="w-14 h-14 flex items-center justify-center bg-green-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-green-200 transition-all duration-300">
-        <i class="fa-solid fa-tree text-green-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-green-600">Taman</span>
-    </a>
+  <!-- Taman -->
+  <a href="https://docs.google.com/spreadsheets/d/1PjQdqNzuzGT0zqMFihZ9HmvH2P3LYlHYzgeaD2jaYtk/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:0.9s">
+    <div class="w-14 h-14 flex items-center justify-center bg-lime-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-tree text-lime-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Taman</span>
+  </a>
 
-    <!-- Gondola -->
-    <a href="https://docs.google.com/spreadsheets/d/1y1iqnIlJ0Fv3t9ZLGFkYG-0_L_6hTlZyD49Hm-9Rz-4/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-800">
-      <div class="w-14 h-14 flex items-center justify-center bg-indigo-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-indigo-200 transition-all duration-300">
-        <i class="fa-solid fa-elevator text-indigo-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-indigo-600">Gondola</span>
-    </a>
+  <!-- Gondola -->
+  <a href="https://docs.google.com/spreadsheets/d/1y1iqnIlJ0Fv3t9ZLGFkYG-0_L_6hTlZyD49Hm-9Rz-4/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1s">
+    <div class="w-14 h-14 flex items-center justify-center bg-indigo-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-bucket text-indigo-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Gondola</span>
+  </a>
 
-    <!-- General Cleaning -->
-    <a href="https://docs.google.com/spreadsheets/d/1B6JccGEJHbxOimrfZ0mDN_aWIz2zXFYMbaZm6n7EDvE/edit?usp=sharing" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-900">
-      <div class="w-14 h-14 flex items-center justify-center bg-cyan-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-200 transition-all duration-300">
-        <i class="fa-solid fa-broom text-cyan-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-cyan-600">General<br>Cleaning</span>
-    </a>
+  <!-- General Cleaning -->
+  <a href="https://docs.google.com/spreadsheets/d/1B6JccGEJHbxOimrfZ0mDN_aWIz2zXFYMbaZm6n7EDvE/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.1s">
+    <div class="w-14 h-14 flex items-center justify-center bg-cyan-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-trash text-cyan-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium text-center">General<br>Cleaning</span>
+  </a>
 
-    <!-- Nomor Telpon Fax -->
-    <a href="https://viyatadhika.github.io/noext/" target="_blank"
-       class="group flex flex-col items-center text-gray-700 text-xs animate-fadeInUp delay-900">
-      <div class="w-14 h-14 flex items-center justify-center bg-magenta-50 rounded-2xl shadow-md 
-                  group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-cyan-200 transition-all duration-300">
-        <i class="fa-solid fa-phone text-magenta-600 text-2xl"></i>
-      </div>
-      <span class="mt-2 text-center font-medium group-hover:text-cyan-600">Nomor<br>Telepon</span>
-    </a>
+  <!-- Piket OB -->
+  <a href="https://docs.google.com/spreadsheets/d/1U-CYB7QCpUDJ6hUvXTz6X-3QYW6GCdfRWo0ONgcXSkQ/edit?usp=sharing" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.2s">
+    <div class="w-14 h-14 flex items-center justify-center bg-yellow-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-broom text-yellow-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Piket OB</span>
+  </a>
 
-  </div>
+  <!-- Schedule -->
+  <a href="#" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.3s">
+    <div class="w-14 h-14 flex items-center justify-center bg-fuchsia-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-calendar text-fuchsia-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Schedule</span>
+  </a>
+</div>
 
+<!-- 🛡️ Bagian Menu Security -->
+<h2 class="text-sm font-semibold mt-8 mb-2 fade-up" style="animation-delay:1.4s">
+  Security
+</h2>
+
+<div class="grid grid-cols-4 gap-4 px-4 mt-4">
+
+  <!-- Koordinator -->
+  <a href="https://docs.google.com/spreadsheets/d/1E8tZ22b78HXOQPEbL87Wczee6f9mY14Dtx9JBBTVIs4/edit?usp=sharing" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.5s">
+    <div class="w-14 h-14 flex items-center justify-center bg-purple-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-user-shield text-purple-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Koordinator</span>
+  </a>
+
+  <!-- PTSP -->
+  <a href="https://docs.google.com/spreadsheets/d/1Fo9rG33R__3XOEYgNEBESaGKtq0SWXsxeHhZW4wT79o/edit?usp=sharing" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.6s">
+    <div class="w-14 h-14 flex items-center justify-center bg-pink-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-building-shield text-pink-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">PTSP</span>
+  </a>
+
+  <!-- Regu -->
+  <a href="https://docs.google.com/spreadsheets/d/14iUsvLisToiBm0vmeBBr5_YZLbGsOvuGzFH_jyCx4RU/edit?usp=sharing" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.7s">
+    <div class="w-14 h-14 flex items-center justify-center bg-sky-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-users text-sky-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Regu</span>
+  </a>
+
+  <!-- Presensi -->
+  <a href="https://docs.google.com/spreadsheets/d/1VAMnM30oySH1Z8VG0XRDKoQhsoAXkptaLOcbveUVJVc/edit?usp=sharing" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.8s">
+    <div class="w-14 h-14 flex items-center justify-center bg-emerald-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-calendar-check text-emerald-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium text-center">Presensi<br>Ploting Jaga</span>
+  </a>
+
+  <!-- Schedule -->
+  <a href="#" target="_blank" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:1.9s">
+    <div class="w-14 h-14 flex items-center justify-center bg-amber-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-calendar-days text-amber-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium">Schedule</span>
+  </a>
+
+  <!-- Menu Lainnya -->
+  <a id="openLainnya" class="group menu-card flex flex-col items-center text-gray-700 text-xs fade-up" style="animation-delay:2s">
+    <div class="w-14 h-14 flex items-center justify-center bg-teal-50 rounded-2xl shadow-md hover-glow">
+      <i class="fa-solid fa-layer-group text-teal-600 text-2xl"></i>
+    </div>
+    <span class="mt-2 font-medium text-center">Menu<br>Lainnya</span>
+  </a>
+</div>
+
+
+    
     <!-- 🔹 RINGKASAN HARI INI -->
     <h2 class="text-sm font-semibold mt-6 mb-2 fade-up" style="animation-delay:1.5s">Ringkasan Hari Ini</h2>
     <div class="grid grid-cols-2 gap-4">
@@ -255,48 +310,104 @@
     </div>
   </main>
 
- <!-- BOTTOM NAV -->
-<nav class="bg-white border-t shadow-md flex justify-around py-2 text-xs text-gray-600 fixed bottom-0 left-0 right-0 z-50">
-  <!-- Beranda -->
-  <a href="#" class="group flex flex-col items-center text-blue-600 transition-all duration-300">
-    <i class="fa-solid fa-home text-lg mb-0.5 group-hover:scale-110"></i>
-    <span class="group-hover:text-blue-600">Beranda</span>
-  </a>
+  <!-- 🌟 BOTTOM NAVBAR - FIXED SUPER APP STYLE -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-sm z-50 pb-[env(safe-area-inset-bottom)]">
+  <div class="grid grid-cols-5 text-center text-gray-600 text-[11px] font-medium">
+    <a href="#" class="flex flex-col items-center justify-center py-2 hover:text-blue-600 transition-all">
+      <i class="fa-solid fa-home text-lg mb-1"></i>
+      <span>Beranda</span>
+    </a>
 
-  <!-- SIKEP -->
-  <a href="https://sikep.mahkamahagung.go.id/" target="_blank" class="group flex flex-col items-center hover:text-blue-600 transition-all duration-300">
-    <i class="fa-solid fa-building-columns text-lg mb-0.5 group-hover:scale-110"></i>
-    <span class="group-hover:text-blue-600">SIKEP</span>
-  </a>
+    <a href="https://sikep.mahkamahagung.go.id/" target="_blank" class="flex flex-col items-center justify-center py-2 hover:text-blue-600 transition-all">
+      <i class="fa-solid fa-building-columns text-lg mb-1"></i>
+      <span>SIKEP</span>
+    </a>
 
-  <!-- e-Kinerja -->
-  <a href="https://asndigital.bkn.go.id/" target="_blank" class="group flex flex-col items-center hover:text-blue-600 transition-all duration-300">
-    <i class="fa-solid fa-briefcase text-lg mb-0.5 group-hover:scale-110"></i>
-    <span class="group-hover:text-blue-600">e-Kinerja</span>
-  </a>
+    <a href="https://asndigital.bkn.go.id/" target="_blank" class="flex flex-col items-center justify-center py-2 hover:text-blue-600 transition-all">
+      <i class="fa-solid fa-briefcase text-lg mb-1"></i>
+      <span>e-Kinerja</span>
+    </a>
 
-  <!-- Upload PKP -->
-  <a href="https://forms.gle/T8RfTL22i8HDSeuZ6" target="_blank" class="group flex flex-col items-center hover:text-blue-600 transition-all duration-300">
-    <i class="fa-solid fa-upload text-lg mb-0.5 group-hover:scale-110"></i>
-    <span class="group-hover:text-blue-600">Upload PKP</span>
-  </a>
+    <a id="uploadPresensiBtn" href="javascript:void(0)" class="flex flex-col items-center justify-center py-2 hover:text-blue-600 transition-all">
+      <i class="fa-solid fa-clock text-lg mb-1"></i>
+      <span>Upload Presensi</span>
+    </a>
+
+    <a href="https://forms.gle/T8RfTL22i8HDSeuZ6" target="_blank" class="flex flex-col items-center justify-center py-2 hover:text-blue-600 transition-all">
+      <i class="fa-solid fa-upload text-lg mb-1"></i>
+      <span>Upload PKP</span>
+    </a>
+
+  </div>
 </nav>
 
-   <!-- === POPUP PENGUMUMAN PKP === -->
-<!--<div id="popupPKP" class="fixed inset-0 flex items-center justify-center bg-black/40 backdrop-blur-sm z-[60] hidden">
-  <div class="bg-white rounded-2xl shadow-xl w-[90%] max-w-sm p-6 text-center animate-[fadeUp_0.4s_ease_forwards]">
-    <div class="mx-auto mb-3 bg-blue-100 w-14 h-14 flex items-center justify-center rounded-full">
-      <i class="fa-solid fa-bell text-blue-600 text-2xl"></i>
-    </div>
-    <h2 class="text-base font-semibold mb-2">Pengingat PKP Bulanan</h2>
-    <p class="text-sm text-gray-600 leading-relaxed mb-5">
-      Segera kerjakan <span class="font-semibold text-blue-600">PKP bulanan</span> sebelum tanggal <span class="font-semibold">4</span> setiap bulan agar data kinerja tetap terupdate.
-    </p>
-    <button id="closePopup" class="w-full py-2.5 rounded-xl bg-blue-600 text-white font-medium hover:bg-blue-700 transition">
-      Mengerti
+ <!-- 🔹 UPLOAD PRESENSI MODAL -->
+<div id="uploadMenuOverlay" class="fixed inset-0 z-50 hidden">
+  <!-- Background gelap -->
+  <div id="overlayBg" class="absolute inset-0 bg-black bg-opacity-40 opacity-0 transition-opacity duration-300"></div>
+
+  <!-- Konten bottom sheet -->
+  <div id="uploadSheet"
+    class="absolute bottom-0 left-0 right-0 translate-y-full transition-transform duration-300 bg-white rounded-t-2xl shadow-lg max-h-[85vh] overflow-y-auto">
+    
+    <div class="sheet-handle w-12 h-1.5 bg-gray-300 rounded-full mt-3 mx-auto"></div>
+    <button id="uploadCloseBtn" class="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-xl">
+      <i class="fa-solid fa-xmark"></i>
     </button>
+    <div class="p-4 pb-8 pt-4">
+      <h2 class="text-base font-semibold mb-4 text-center">Upload Presensi</h2>
+      <div class="space-y-3">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdJ0cE3fE7Snb6a4dzfQrM1VL9x-YmEppNxD7qQAsh32tC92A/viewform"
+          target="_blank"
+          class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-sky-50 transition">
+          <i class="fa-solid fa-user text-blue-600 text-xl"></i>
+          <span class="text-sm font-medium">PPPK Sekretariat</span>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSc1mv-ViBDEHsfTUVhphXyRscmifBZXwX5znuH8Ui4zX-KOmQ/viewform"
+          target="_blank"
+          class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-sky-50 transition">
+          <i class="fa-solid fa-broom text-blue-600 text-xl"></i>
+          <span class="text-sm font-medium">PPPK Cleaning Service</span>
+        </a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeuwvIKORTut8kHq5cyjYUSb_VX8WN-uMJkn096R91uHbAxqw/viewform"
+          target="_blank"
+          class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-sky-50 transition">
+          <i class="fa-solid fa-shield-halved text-blue-600 text-xl"></i>
+          <span class="text-sm font-medium">PPPK Security</span>
+        </a>
+      </div>
+    </div>
   </div>
-</div>-->
+</div>
+
+  <!-- BG -->
+  <div id="fadeBg" class="fade-bg"></div>
+
+  <!-- MENU LAINNYA -->
+  <div id="menuSheet" class="sheet">
+    <div class="sheet-handle"></div>
+    <button id="closeSheet" class="absolute top-3 right-4 text-gray-400 hover:text-gray-600 text-xl">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+
+    <div id="sheetContent" class="p-4 pb-8 pt-4">
+      <h2 class="text-base font-semibold mb-4 text-center">Menu Lainnya</h2>
+      <div class="space-y-3">
+        <a href="https://docs.google.com/spreadsheets/d/1UpJrbk6gDnNie_jXzb7xfgpVGhc68MelDuFlmYU4boQ/edit" target="_blank" class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-sky-50 transition">
+          <i class="fa-solid fa-calendar-days text-blue-600 text-xl"></i>
+          <span class="text-sm font-medium">Timetable Kegiatan</span>
+        </a>
+        <a href="https://docs.google.com/spreadsheets/d/1H3wMRJaw5R241OE0cgzMWumyR2oeGvVf0HzHBsu8Omg/edit" target="_blank" class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-sky-50 transition">
+          <i class="fa-solid fa-bed text-blue-600 text-xl"></i>
+          <span class="text-sm font-medium">Cekin Peserta</span>
+        </a>
+        <a href="https://viyatadhika.github.io/noext/" target="_blank" class="flex items-center gap-3 p-3 bg-gray-50 rounded-xl hover:bg-sky-50 transition">
+          <i class="fa-solid fa-phone text-blue-600 text-xl"></i>
+          <span class="text-sm font-medium">Nomor Telepon</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <!-- === POPUP PENGUMUMAN PKP (UPGRADED VISUALS) === -->
     <div id="popupPKP" class="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-[60] hidden">
@@ -335,32 +446,107 @@
     </div>
     <!-- === END POPUP PENGUMUMAN PKP === -->
 
-
+ <!-- 🌟 POPUP PEMBERITAHUAN MOOC -->
+<div id="popupPeringatan"
+  class="fixed inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center z-[999]">
+  <div class="popup-content bg-white rounded-2xl shadow-xl max-w-sm w-[90%] p-5 text-center animate-fadeIn relative">
+    <h2 class="text-lg font-semibold text-gray-800 mb-2">🎓 Pembelajaran Mandiri MOOC</h2>
+    <p class="text-sm text-gray-600 mb-4 leading-relaxed">
+      Segera selesaikan pembelajaran mandiri <br><b>Massive Online Open Courses (MOOC)</b> <br> melalui website:<br>
+      <a href="https://sibangkom.lan.go.id/pembelajaran-wajib/login" target="_blank" class="text-blue-600 underline">
+        https://sibangkom.lan.go.id/pembelajaran-wajib/login
+      </a><br><br>
+      Periode pelaksanaan: <br>
+      <b>Tanggal 3 November – 17 November 2025</b>.
+    </p>
+    <button id="btnTutupPopup"
+      class="bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-lg transition-all">
+      Tutup
+    </button>
+  </div>
+</div>
 
   <script>
-    // Auto slide carousel
+    // === CAROUSEL ===
     const carousel = document.getElementById("carousel");
     const dots = [document.getElementById("dot0"), document.getElementById("dot1"), document.getElementById("dot2")];
     let index = 0;
-
     function showSlide(i) {
       carousel.scrollTo({ left: carousel.offsetWidth * i, behavior: "smooth" });
       dots.forEach((dot, idx) => {
-        dot.classList.remove("bg-blue-600");
-        dot.classList.add("bg-gray-400");
-        if (idx === i) {
-          dot.classList.add("bg-blue-600");
-          dot.classList.remove("bg-gray-400");
-        }
+        dot.classList.toggle("bg-blue-600", idx === i);
+        dot.classList.toggle("bg-gray-400", idx !== i);
       });
     }
+    setInterval(() => { index = (index + 1) % 3; showSlide(index); }, 4000);
 
-    setInterval(() => {
-      index = (index + 1) % 3;
-      showSlide(index);
-    }, 4000);
+    // === SHEET MENU LAINNYA ===
+    const openMenu = document.getElementById('openLainnya');
+    const menuSheet = document.getElementById('menuSheet');
+    const fadeBg = document.getElementById('fadeBg');
+    const closeSheet = document.getElementById('closeSheet');
+    const sheetContent = document.getElementById('sheetContent');
+
+    const openSheet = () => {
+      menuSheet.style.transition = "none";
+      menuSheet.style.transform = "translateY(100%)";
+      requestAnimationFrame(() => {
+        menuSheet.classList.add("show");
+        fadeBg.classList.add("show");
+        menuSheet.style.transition = "transform 0.35s ease";
+        menuSheet.style.transform = "translateY(0)";
+      });
+    };
+
+    const closeSheetFn = () => {
+      menuSheet.style.transition = "transform 0.35s ease";
+      menuSheet.style.transform = "translateY(100%)";
+      fadeBg.classList.remove("show");
+      setTimeout(() => {
+        menuSheet.classList.remove("show");
+        menuSheet.style.transform = "translateY(100%)";
+      }, 400);
+    };
+
+    openMenu.addEventListener('click', openSheet);
+    fadeBg.addEventListener('click', closeSheetFn);
+    closeSheet.addEventListener('click', closeSheetFn);
+
+    // SWIPE DOWN CLOSE FIX
+    let startY = 0, currentY = 0, isDragging = false, canClose = false;
+    sheetContent.addEventListener('touchstart', (e) => {
+      if (sheetContent.scrollTop <= 0) {
+        canClose = true;
+        startY = e.touches[0].clientY;
+        isDragging = true;
+        menuSheet.style.transition = "none";
+      } else canClose = false;
+    });
+
+    sheetContent.addEventListener('touchmove', (e) => {
+      if (!isDragging || !canClose) return;
+      currentY = e.touches[0].clientY;
+      const deltaY = currentY - startY;
+      if (deltaY > 0) {
+        e.preventDefault();
+        menuSheet.style.transform = `translateY(${deltaY}px)`;
+      }
+    });
+
+    sheetContent.addEventListener('touchend', () => {
+      if (!isDragging) return;
+      isDragging = false;
+      const deltaY = currentY - startY;
+      menuSheet.style.transition = "transform 0.35s ease";
+      if (canClose && deltaY > 100) {
+        closeSheetFn();
+      } else {
+        menuSheet.style.transform = "translateY(0)";
+      }
+    });
   </script>
-  <script>
+  
+<script>
   // === POPUP PKP ===
   const popupPKP = document.getElementById('popupPKP');
   const closePopup = document.getElementById('closePopup');
@@ -370,20 +556,187 @@
   const month = now.getMonth();
   const date = now.getDate();
 
-  // Cari tanggal terakhir di bulan ini
+  // Key unik per hari agar popup tidak muncul ulang hari yang sama
+  const todayKey = `popupShown_${year}-${month + 1}-${date}`;
+  const hasShownToday = localStorage.getItem(todayKey);
+
+  // Cari tanggal terakhir bulan ini
   const lastDay = new Date(year, month + 1, 0).getDate();
 
-  // Jika termasuk 7 hari terakhir bulan ini (minggu akhir)
+  // Jika termasuk 7 hari terakhir bulan ini
   const isLastWeekOfMonth = date > lastDay - 7;
 
-  if (isLastWeekOfMonth) {
-    popupPKP.classList.remove('hidden');
+  // === Fungsi untuk memainkan suara notifikasi ===
+  function playNotificationSound() {
+    const audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_9a46fbd2f7.mp3?filename=notification-199217.mp3");
+    audio.volume = 0.5;
+    audio.play().catch(() => {}); // mencegah error jika autoplay diblok
   }
 
+  // === Tampilkan popup dengan efek + suara ===
+  if (isLastWeekOfMonth && !hasShownToday) {
+    popupPKP.classList.remove('hidden');
+    const content = popupPKP.querySelector('div');
+    content.classList.add('animate-popup-show');
+    playNotificationSound(); // mainkan suara lembut
+  }
+
+  // === Tutup popup ===
   closePopup.addEventListener('click', () => {
-    popupPKP.classList.add('hidden');
+    const content = popupPKP.querySelector('div');
+    content.classList.remove('animate-popup-show');
+    content.classList.add('animate-popup-hide');
+
+    setTimeout(() => {
+      popupPKP.classList.add('hidden');
+      localStorage.setItem(todayKey, 'true');
+      window.location.href = "beranda.php"; // langsung ke beranda
+    }, 350);
   });
 </script>
+
+<!-- 📆 LOGIKA POPUP -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("popupPeringatan");
+    const popupBox = popup.querySelector(".popup-content");
+    const btnTutup = document.getElementById("btnTutupPopup");
+    const closeIcon = document.getElementById("closePopup");
+
+    // 🗓️ Rentang tanggal aktif popup
+    const startDate = new Date(2025, 10, 3);  // 3 November 2025
+    const endDate = new Date(2025, 10, 17);   // 17 November 2025
+    const today = new Date();
+
+    // ✅ Tampilkan popup hanya jika hari ini dalam rentang
+    if (today >= startDate && today <= endDate) {
+      popup.classList.remove("hidden");
+    } else {
+      popup.classList.add("hidden");
+    }
+
+    // 🔘 Fungsi menutup popup
+    function closePopup() {
+      popup.classList.add("hidden");
+    }
+
+    // Tombol dan ikon tutup
+    btnTutup.addEventListener("click", closePopup);
+    closeIcon.addEventListener("click", closePopup);
+
+    // Klik di luar area popup → tutup
+    popup.addEventListener("click", function(e) {
+      if (!popupBox.contains(e.target)) {
+        closePopup();
+      }
+    });
+  });
+</script>
+
+<script>
+  // === SHEET UPLOAD PRESENSI (versi anti-bentrok) ===
+  const openUploadPresensiBtn = document.getElementById('uploadPresensiBtn');
+  const uploadOverlayEl = document.getElementById('uploadMenuOverlay');
+  const uploadBgEl = document.getElementById('overlayBg');
+  const uploadSheetEl = document.getElementById('uploadSheet');
+  const uploadCloseEl = document.getElementById('uploadCloseBtn');
+
+  const openUploadPresensi = () => {
+    uploadOverlayEl.classList.remove("hidden");
+    uploadBgEl.classList.remove("opacity-0");
+    uploadBgEl.classList.add("opacity-100");
+
+    // pastikan sheet tampil penuh walau user sedang scroll di bawah
+    window.scrollTo({ top: 0, behavior: "instant" });
+
+    requestAnimationFrame(() => {
+      uploadSheetEl.style.transition = "transform 0.35s ease";
+      uploadSheetEl.style.transform = "translateY(0)";
+    });
+  };
+
+  const closeUploadPresensi = () => {
+    uploadSheetEl.style.transition = "transform 0.35s ease";
+    uploadSheetEl.style.transform = "translateY(100%)";
+    uploadBgEl.classList.remove("opacity-100");
+    uploadBgEl.classList.add("opacity-0");
+    setTimeout(() => {
+      uploadOverlayEl.classList.add("hidden");
+    }, 350);
+  };
+
+  // === Event Listener ===
+  openUploadPresensiBtn.addEventListener('click', openUploadPresensi);
+  uploadBgEl.addEventListener('click', closeUploadPresensi);
+  uploadCloseEl.addEventListener('click', closeUploadPresensi);
+
+  // === SWIPE DOWN UNTUK MENUTUP ===
+  let startY_upload = 0, currentY_upload = 0, isDragging_upload = false, canClose_upload = false;
+
+  uploadSheetEl.addEventListener('touchstart', (e) => {
+    if (uploadSheetEl.scrollTop <= 0) {
+      canClose_upload = true;
+      startY_upload = e.touches[0].clientY;
+      isDragging_upload = true;
+      uploadSheetEl.style.transition = "none";
+    } else canClose_upload = false;
+  });
+
+  uploadSheetEl.addEventListener('touchmove', (e) => {
+    if (!isDragging_upload || !canClose_upload) return;
+    currentY_upload = e.touches[0].clientY;
+    const deltaY = currentY_upload - startY_upload;
+    if (deltaY > 0) {
+      e.preventDefault();
+      uploadSheetEl.style.transform = `translateY(${deltaY}px)`;
+    }
+  });
+
+  uploadSheetEl.addEventListener('touchend', () => {
+    if (!isDragging_upload) return;
+    isDragging_upload = false;
+    const deltaY = currentY_upload - startY_upload;
+    uploadSheetEl.style.transition = "transform 0.35s ease";
+    if (canClose_upload && deltaY > 100) {
+      closeUploadPresensi();
+    } else {
+      uploadSheetEl.style.transform = "translateY(0)";
+    }
+  });
+</script>
+
+<!-- 🔹 STYLE TAMBAHAN -->
+<style>
+  #uploadSheet {
+    transition: transform 0.35s ease;
+  }
+  #overlayBg {
+    transition: opacity 0.3s ease;
+  }
+</style>
+ 
+<style>
+  /* Animasi popup muncul */
+  @keyframes popupShow {
+    0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+    100% { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
+  /* Animasi popup hilang */
+  @keyframes popupHide {
+    0% { opacity: 1; transform: translateY(0) scale(1); }
+    100% { opacity: 0; transform: translateY(30px) scale(0.95); }
+  }
+
+  .animate-popup-show {
+    animation: popupShow 0.4s ease forwards;
+  }
+
+  .animate-popup-hide {
+    animation: popupHide 0.3s ease forwards;
+  }
+</style>
+
 
 <style>
   @keyframes fadeUp {
@@ -391,23 +744,58 @@
     to { opacity: 1; transform: translateY(0) scale(1); }
   }
 </style>
+  <!-- 🌟 FIX SAFARI / ANDROID WHITE GAP -->
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafb;
+    overscroll-behavior-y: none;
+  }
+  body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1 0 auto;
+  }
+  nav {
+    flex-shrink: 0;
+  }
+</style>
+<!-- 🌿 STYLE TAMBAHAN UNTUK ANIMASI & EFEK -->
+<style>
+  /* Animasi muncul dari bawah */
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-up {
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  /* Efek hover modern seperti glow */
+  .hover-glow:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transform: scale(1.08);
+    transition: all 0.25s ease;
+  }
+
+  /* Sentuhan halus untuk klik (mobile friendly) */
+  .menu-card:active {
+    transform: scale(0.96);
+    transition: all 0.1s ease;
+  }
+</style>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
